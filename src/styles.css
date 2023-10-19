@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    background-image: url('assets/img/green-field-tree-blue-skygreat-as-backgroundweb-banner-generative-ai.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    overflow-y: auto;
+    min-height: 100vh;
+}
+
+*{
+    scroll-behavior: smooth;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: lighter;
+}

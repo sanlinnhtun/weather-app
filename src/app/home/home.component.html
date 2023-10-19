@@ -1,0 +1,217 @@
+<!-- overcast clouds  wi-day-sunny-overcast
+
+
+clear sky  wi-day-sunny
+
+haze               wi-day-haze
+scattered clouds   wi-day-haze
+
+few clouds wi-day-cloudy-high
+
+moderate rain wi-day-rain-wind
+
+light rain     wi-day-rain
+broken clouds  wi-day-rain
+ -->
+
+<section class="hv-100">
+  <div class="container h-100 ">
+    <div class="row d-flex h-100 justify-content-center align-items-center">
+      <div class="col-xl-10 p-3">
+        <!-- caard one -->
+        <form (ngSubmit)="getWeather()" class="align-items-center">
+          <div class="mb-3 d-flex">
+            <label for="city"></label>
+            <input
+              type="search"
+              id="city"
+              name="city"
+              class="form-control"
+              [(ngModel)]="city"
+              placeholder="City"
+              style="width: 20rem; margin-left: 20rem; line-height: 30px"
+            />
+            <button class="btn" style="background-color: #d2de32" type="submit">
+              Search
+            </button>
+          </div>
+
+          <div class="card mb-4 gradient-custom">
+            <div class="card-body p-4">
+              <div id="demo1">
+                <!-- Carousel inner -->
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <div class="d-flex justify-content-between mb-4 pb-2">
+                      <div>
+                        <!-- Today, 14 Septemper -->
+                        <p>Today, {{ currentDate | date : "mediumDate" }}</p>
+                        <h2 class="display-2">
+                          <strong>{{ temp }}°C</strong>
+                        </h2>
+                        <p class="text-muted mb-0">{{ city }}, {{ country }}</p>
+                      </div>
+                      <div>
+                        <h1 style="width: 80px; font-size: 4rem">
+                          <i class="wi {{ icon_path }}"></i>
+                        </h1>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between">
+                <span class="text-muted">
+                  <p>description</p>
+                  <!-- <h5>{{ desc }}</h5> -->
+                  <ng-container *ngIf="error==false; else errorTamplate"><h5>{{ desc }}</h5></ng-container>
+                  <ng-template #errorTamplate>
+                    <h5> {{errorMessage}}</h5>
+                  </ng-template>
+                </span>
+
+                <span>
+                  <p class="text-muted">Wind speed</p>
+                  <h5 class="text-muted">
+                    <i class="wi wi-owm-957"></i> {{ wind }} km/s
+                  </h5>
+                </span>
+
+                <span>
+                  <p class="text-muted">Humidity</p>
+                  <h5 class="text-muted">
+                    {{ humidity }} <i class="wi wi-humidity"></i>
+                  </h5>
+                </span>
+
+                <span class="text-muted">
+                  <p>Visibility</p>
+                  <h5>{{ visibility }} km</h5>
+                </span>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <!-- card two -->
+        <div class="card mb-4 gradient-custom-1">
+          <div class="card-body p-4 c-two">
+            <div id="demo2">
+              <!-- Carousel inner -->
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div
+                    class="d-flex justify-content-around text-center mb-4 pb-3 pt-2"
+                  >
+                    <div class="flex-column">
+                      <p class="small"><strong>21°C</strong></p>
+                      <i class="fas fa-sun fa-2x mb-3" style="color: #ddd"></i>
+                      <p class="mb-0"><strong>12:00</strong></p>
+                      <p class="mb-0 text-muted" style="font-size: 0.65rem">
+                        PM
+                      </p>
+                    </div>
+                    <div class="flex-column">
+                      <p class="small"><strong>2°C</strong></p>
+                      <i class="fas fa-sun fa-2x mb-3" style="color: #ddd"></i>
+                      <p class="mb-0"><strong>1:00</strong></p>
+                      <p class="mb-0 text-muted" style="font-size: 0.65rem">
+                        PM
+                      </p>
+                    </div>
+                    <div class="flex-column">
+                      <p class="small"><strong>20°C</strong></p>
+                      <i
+                        class="fas fa-cloud fa-2x mb-3"
+                        style="color: #ddd"
+                      ></i>
+                      <p class="mb-0"><strong>2:00</strong></p>
+                      <p class="mb-0 text-muted" style="font-size: 0.65rem">
+                        PM
+                      </p>
+                    </div>
+                    <div class="flex-column">
+                      <p class="small"><strong>19°C</strong></p>
+                      <i
+                        class="fas fa-cloud fa-2x mb-3"
+                        style="color: #ddd"
+                      ></i>
+                      <p class="mb-0"><strong>3:00</strong></p>
+                      <p class="mb-0 text-muted" style="font-size: 0.65rem">
+                        PM
+                      </p>
+                    </div>
+                    <div class="flex-column">
+                      <p class="small"><strong>18°C</strong></p>
+                      <i
+                        class="fas fa-cloud-showers-heavy fa-2x mb-3"
+                        style="color: #ddd"
+                      ></i>
+                      <p class="mb-0"><strong>4:00</strong></p>
+                      <p class="mb-0 text-muted" style="font-size: 0.65rem">
+                        PM
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- card three -->
+        <div class="card gradient-custom-2">
+          <div class="card-body p-4 c-three">
+            <div id="demo3">
+              <!-- Carousel inner -->
+              <div>
+                <div>
+                  <div
+                    class="d-flex justify-content-around text-center mb-4 pb-3 pt-2"
+                  >
+                    <div class="flex-column">
+                      <p class="small"><strong>21°C</strong></p>
+                      <i class="fas fa-sun fa-2x mb-3" style="color: #ddd"></i>
+                      <p class="mb-0"><strong>Mon</strong></p>
+                    </div>
+                    <div class="flex-column">
+                      <p class="small"><strong>20°C</strong></p>
+                      <i class="fas fa-sun fa-2x mb-3" style="color: #ddd"></i>
+                      <p class="mb-0"><strong>Tue</strong></p>
+                    </div>
+                    <div class="flex-column">
+                      <p class="small"><strong>16°C</strong></p>
+                      <i
+                        class="fas fa-cloud fa-2x mb-3"
+                        style="color: #ddd"
+                      ></i>
+                      <p class="mb-0"><strong>Wed</strong></p>
+                    </div>
+                    <div class="flex-column">
+                      <p class="small"><strong>17°C</strong></p>
+                      <i
+                        class="fas fa-cloud fa-2x mb-3"
+                        style="color: #ddd"
+                      ></i>
+                      <p class="mb-0"><strong>Thu</strong></p>
+                    </div>
+                    <div class="flex-column">
+                      <p class="small"><strong>18°C</strong></p>
+                      <i
+                        class="fas fa-cloud-showers-heavy fa-2x mb-3"
+                        style="color: #ddd"
+                      ></i>
+                      <p class="mb-0"><strong>Fri</strong></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+</section>
+

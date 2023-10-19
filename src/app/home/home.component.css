@@ -1,0 +1,31 @@
+.gradient-custom {
+    background: linear-gradient(to right, rgb(171, 240, 254), rgb(255, 233, 205))
+    }
+
+.gradient-custom-1{
+    background: linear-gradient(to right, rgb(255, 233, 205), rgb(171, 240, 254))
+}
+
+.gradient-custom-2{
+    background: linear-gradient(to right, rgb(171, 240, 254), rgb(255, 233, 205))
+}
+    
+.card{
+    border-radius: 25px;
+    box-shadow: 0px 0px 8px 3px #040D12;
+    border: 2px solid #ADC4CE;
+}
+
+/* .c-two {
+    height:17rem;
+}
+
+.c-three{
+    width: 40rem;
+    height: 17rem;
+} */
+
+.form{
+    width: 30rem;
+    align-items: center;
+}
